@@ -3,6 +3,7 @@ name: Sample Workflow
 on:
   pull_request:
     types: [opened, synchronize, labeled, unlabeled]
+    paths-ignore: ['apps/web/**', 'apps/studio/**']
 
 jobs:
   main_job:
