@@ -1,0 +1,14 @@
+name: Sample Workflow
+
+on:
+  pull_request:
+    types: [opened, synchronize, labeled, unlabeled]
+
+jobs:
+  main_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Run main tasks
+        run: echo "Running main tasks..."

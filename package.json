@@ -1,0 +1,11 @@
+{
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexangc/test-workflow-paths-ignore.git"
+  },
+  "name": "test-workflow-paths-ignore",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "echo hello world"
+  } 
+}
