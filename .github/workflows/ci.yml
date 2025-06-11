@@ -3,12 +3,25 @@ name: Sample Workflow
 on:
   pull_request:
     types: [opened, synchronize, labeled, unlabeled]
-    paths-ignore: ['apps/web/**', 'apps/studio/**']
 
 jobs:
   main_job:
     runs-on: ubuntu-latest
     steps:
+      - name: Check if workflow should run
+        id: changes
+        uses: dorny/paths-filter@v3
+        with:
+          filters: |
+            run:
+              - '!apps/web/**'
+              - '!apps/studio/**'
+              - '!apps/script-controller/**'
+
+      - name: Skip if not applicable
+        if: steps.changes.outputs.run != 'true'
+        run: echo "No relevant changes, skipping." && exit 0
+
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Run main tasks
