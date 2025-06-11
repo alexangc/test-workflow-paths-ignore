@@ -1,6 +1,9 @@
 name: Sample Workflow
 
 on:
+  push:
+    branches:
+      - main
   pull_request:
     types: [opened, synchronize, labeled, unlabeled]
 
